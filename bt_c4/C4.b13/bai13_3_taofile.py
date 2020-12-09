@@ -1,7 +1,6 @@
-import os
 import random
 import string
-dlmax=int(input('nhap gioi han du lieu (MB): '))
+dlmax=10#int(input('nhap gioi han du lieu (MB): '))
 while (dlmax<1 or dlmax>1024):
 	dlmax = int(input('nhap lại gioi han du lieu (1->1024MB): '))
 one_file=1000*1024 #dung lương mỗi file là 1KB
