@@ -2,8 +2,11 @@ import os
 
 list1=[]
 list2=[]
-
 path = 'C:\\Users\\MyPC\\Documents'
+
+print("tất cả các tệp và thư mục trong đường dẫn")
+print(os.listdir(path))
+
 for (a,b,c) in os.walk(path):
 	if b!=[]:
 		list2.append(b)
