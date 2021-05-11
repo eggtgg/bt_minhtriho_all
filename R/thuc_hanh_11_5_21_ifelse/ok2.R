@@ -5,6 +5,9 @@ str(Owls)
 Owls$FoodTreatment
 Owls
 Owls$FoodTreatment == 'Satiated'
+
+# Nếu FoodTreatment là 'Satiated' thì chọn tên là 'Nest_1'
+# Ngược lại thì chọn tên là 'Nest_2'
 Owls$NestNight = ifelse(Owls$FoodTreatment == 'Satiated', 
        Owls$NestNight <- paste(Owls$Nest,'1',sep = '_'),
        Owls$NestNight <- paste(Owls$Nest,'2',sep = '_'))
@@ -13,6 +16,8 @@ as.character(AllNestsNights[1])
 Owls   
 AllNestsNights <- unique(Owls$NestNight)
 N <- length(AllNestsNights)
+
+# Vẽ biểu đồ, nhưng khóa lại không cho nó vẽ
 for (i in 1:N){
   NestNight.i <- as.character(AllNestsNights[i])
   print(NestNight.i)
