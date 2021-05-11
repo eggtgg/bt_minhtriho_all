@@ -3,8 +3,8 @@ setwd("D:/R")
 owls = read.table(file = 'Owls.txt', header = TRUE)
 names(owls)
 str(owls)
-unique(owls$ï..Nest)
-owls.ATV = owls[owls$ï..Nest=="AutavauxTV",]
+unique(owls$Ã¯..Nest)
+owls.ATV = owls[owls$Nest=="AutavauxTV",]
 plot(x=owls.ATV$ArrivalTime,
      y=owls.ATV$NegPerChick,
      xlab = 'Arrival Time',
@@ -12,10 +12,10 @@ plot(x=owls.ATV$ArrivalTime,
      ylab = 'Negotitation behaviour')
 
 
-AllNexts = unique(owls$ï..Nest)
+AllNexts = unique(owls$Nest)
 for (i in 1:27) {
   nest.i = AllNexts[i]
-  owls.i = owls[owls$ï..Nest==nest.i,]
+  owls.i = owls[owls$Nest==nest.i,]
   yourfilename = paste(nest.i, '.jpg', sep = '')
   jpeg(file=yourfilename)
   plot(x=owls.i$ArrivalTime,
