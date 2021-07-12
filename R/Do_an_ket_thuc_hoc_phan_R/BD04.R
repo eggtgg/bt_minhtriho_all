@@ -75,6 +75,10 @@ df_long <- data_plot %>%
   )
 
 df_long
+
+df_long$ngay <- factor(df_long$ngay, levels = ngay_10)
+df_long$ngay  # notice the changed order of factor levels
+
 ggplot(data=df_long, aes(x=ngay, y=value, fill=variable)) +
   geom_bar(stat="identity", position=position_dodge())+
   geom_text(aes(label=value), vjust=-0.3, color="black",
@@ -82,5 +86,5 @@ ggplot(data=df_long, aes(x=ngay, y=value, fill=variable)) +
   scale_fill_brewer(palette="Paired")+
   theme_minimal()+
   labs(title="BIEU DO COT THE HIEN SO CA MAC, SO CA TU VONG, SO CA PHUC HOI\nTRONG 30 NGAY GAN NHAT",
-       x ="So Luong", y = "Ngay")+
+       x ="Ngay", y = "So luong")+
   theme(legend.position = "top", axis.text.x = element_text(angle = 45))

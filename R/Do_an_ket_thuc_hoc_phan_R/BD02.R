@@ -26,6 +26,10 @@ ngay_10
 
 data_plot_10 = data.frame(ngay=ngay_10, so_ca_mac= so_ca_mac_10)
 data_plot_10
+
+data_plot_10$ngay <- factor(data_plot_10$ngay, levels = data_plot_10$ngay[order(data_plot_10$so_ca_mac)])
+data_plot_10$ngay  # notice the changed order of factor levels
+
 ggplot(data = data_plot_10, aes(x=ngay, y=so_ca_mac))+
   geom_bar(color ='black' ,fill = 'orange',stat="identity")+
   geom_text(aes(label=so_ca_mac), vjust=-0.3, size=3.5)+

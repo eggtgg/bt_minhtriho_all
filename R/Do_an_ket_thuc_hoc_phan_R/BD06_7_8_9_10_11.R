@@ -1,15 +1,22 @@
-# Bieu do 3: BIEU DO THE HIEN SO CA MAC, SO CA TU VONG, SO CA PHUC HOI\nTRONG 30 NGAY GAN NHAT
+# Bieu do 6&7&8 : BIEU DO THE HIEN SU TUONG QUAN GIUA SO CA MAC COVID 19
+# VOI SO CA TU VONG, SO CA MAC COVID 19 VOI SO CA PHUC HOI
+# SO CA PHUC HOI VA SO CA TU VONG
+# CUA VIET NAM TRONG 30 NGAY GAN NHAT
+
+# Bieu do 9&10&11: BIEU THE HIEN SU PHAN BO CUA SO CA MAC, TU VONG VA PHUC HOI
+# TAI VIET NAM TRONG 30 NGAY GAN NHAT
+
 library('ggplot2')
 library(tibble)
 library(tidyr)
 library(dplyr)
 library(readr)
 df_ghi_nhan <- read.csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
-               header = TRUE)
+                        header = TRUE)
 df_tu_vong <- read.csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv',
                        header = TRUE)
 df_phuc_hoi <- read.csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
-                       header = TRUE)
+                        header = TRUE)
 
 # xu ly du lieu so ca ghi nhan
 viet_nam_ghi_nhan = df_ghi_nhan[275,5:ncol(df_ghi_nhan)]
@@ -66,29 +73,40 @@ data_plot_10 = data.frame(ngay=ngay_10, so_ca_mac = so_ca_mac_10,
                           so_ca_tu_vong = so_ca_tu_vong_10,
                           so_ca_phuc_hoi = so_ca_phuc_hoi_10)
 data_plot_10
-data_plot <- as_tibble(data_plot_10)
+data_plot <- data.frame(ngay=ngay, so_ca_mac = so_ca_mac,
+                        so_ca_tu_vong = so_ca_tu_vong,
+                        so_ca_phuc_hoi = so_ca_phuc_hoi)
 
-df_long <- data_plot %>%
-  pivot_longer(
-    so_ca_mac:so_ca_phuc_hoi,
-    names_to = "variable", values_to = "value"
-  )
-df_long
+data_plot
 
-df_long$ngay <- factor(df_long$ngay, levels = ngay_10)
-df_long$ngay  # notice the changed order of factor levels
 
-# Basic line plot
-lp <- ggplot(df_long, aes(x = ngay, y = value, group = variable)) +
-  geom_line(aes(color = variable)) +
-  geom_point() +
-  theme(legend.position = "top", axis.text.x = element_text(angle = 45))
+# Bieu do 6: BIEU THE HIEN SU TUONG QUAN SO CA MAC SO CA TU VONG
+library(ggplot2)
+sp <- ggplot(data_plot_10, aes(x=so_ca_mac, y=so_ca_tu_vong/so_ca_mac)) + geom_point(shape=1)
+sp+
+  labs(title="BIEU THE HIEN SU TUONG QUAN SO CA MAC, SO CA TU VONG")
 
-# Filter the last values and add onto the line plot
-# Corresponds to the `virginica` species
-data_ends <- df_long %>% filter(ngay == ngay_10[30])
-lp+geom_text(aes(label=value), vjust=-0.3, color="black",
-            position = position_dodge(0.9), size=3.5)+
-  labs(title="BIEU DO DUONG THE HIEN SO CA MAC, SO CA TU VONG, SO CA PHUC HOI\nTRONG 30 NGAY GAN NHAT",
-       x ="Ngay", y = "So luong")
-  
+# Bieu do 7: BIEU THE HIEN SU TUONG QUAN SO CA MAC SO CA PHUC HOI
+sp_2 <- ggplot(data_plot_10, aes(x=so_ca_mac, y=so_ca_phuc_hoi/so_ca_mac)) + geom_point(shape=1)
+sp_2+
+  labs(title="BIEU THE HIEN SU TUONG QUAN SO CA MAC, SO CA PHUC HOI")
+
+# Bieu do 8: BIEU THE HIEN SU TUONG QUAN SO CA TU VONG, SO CA PHUC HOI
+sp_3 <- ggplot(data_plot_10, aes(x=so_ca_tu_vong, y=so_ca_phuc_hoi/so_ca_tu_vong)) + geom_point(shape=1)
+sp_3+
+  labs(title="BIEU THE HIEN SU TUONG QUAN SO CA TU VONG, SO CA PHUC HOI")
+
+# Bieu do 9: BIEU THE HIEN SU PHAN BO CUA SO CA MAC TAI VIET NAM
+hp <- ggplot(data_plot, aes(x=so_ca_mac)) + geom_histogram(binwidth=2)
+hp+
+  labs(title="BIEU THE HIEN SU PHAN BO CUA SO CA MAC TAI VIET NAM")
+
+# Bieu do 10: BIEU THE HIEN SU PHAN BO CUA SO CA TU VONG TAI VIET NAM
+hp_2 <- ggplot(data_plot, aes(x=so_ca_tu_vong)) + geom_histogram(binwidth=2)
+hp_2+
+  labs(title="BIEU THE HIEN SU PHAN BO CUA SO CA TU VONG TAI VIET NAM")
+
+# Bieu do 11: BIEU THE HIEN SU PHAN BO CUA SO CA PHUC HOI TAI VIET NAM
+hp_2 <- ggplot(data_plot, aes(x=so_ca_phuc_hoi)) + geom_histogram(binwidth=2)
+hp_2+
+  labs(title="BIEU THE HIEN SU PHAN BO CUA SO CA PHUC HOI TAI VIET NAM")
