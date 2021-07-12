@@ -31,7 +31,7 @@ data_plot$ngay <- factor(data_plot$ngay, levels = ngay)
 data_plot$ngay  # notice the changed order of factor levels
 
 plot5 <- ggplot(data_plot, aes(ngay, so_ca_phuc_hoi, group = 1)) +
-  geom_line(color="red", size=1.2) +
+  geom_line(color="green", size=1.2) +
   labs(x = "Ngay", y = "So ca mac", 
        title = "BIEU DO THE HIEN XU HUONG SO CA PHUC HOI COVID 19 CUA VIET NAM")
 plot5
