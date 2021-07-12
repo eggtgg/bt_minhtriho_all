@@ -34,4 +34,4 @@ ggplot(data = data_plot_5, aes(x=country, y= ghi_nhan))+
   geom_bar(color ='black' ,fill = 'orange',stat="identity")+
   geom_text(aes(label=ghi_nhan), vjust=-0.3, size=3.5)+
   labs(title="BIEU DO SO CA MAC TRONG NGAY GAN NHAT CUA CAC NUOC DAN DAU",
-       x ="Country", y = "So ca mac moi")
+       x ="Country", y = "So ca mac")
