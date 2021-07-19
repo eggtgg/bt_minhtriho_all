@@ -1,73 +1,55 @@
 library(tidyverse)
 
 #-----------------------------------------------------------------------------
-#' Try and place a Queen given a vector of positions of the current Queens
-#'
-#' This function calls itself recursively for every valid placement of the
-#' next queen. 
-#'
-#' @param queens A vector of integers representing the column placement 
-#'               of queens so far. The index within this list
-#'               is the row, and the value is the column.  
-#'               To generate all solutions, pass in an empty vector (the default)
-#'
-#'  e.g. queens = c(1, 4, 7) corresponds to queens placed at c(1, 1), c(2, 4) and
-#'  c(3, 7)
-#'                  
-#'
-#'  ---------------------------------
-#'  |   |   |   |   |   |   |   |   |
-#'  ---------------------------------
-#'  |   |   |   |   |   |   |   |   |
-#'  ---------------------------------
-#'  |   |   |   |   |   |   |   |   |
-#'  ---------------------------------
-#'  |   |   |   |   |   |   |   |   |
-#'  ---------------------------------
-#'  |   |   |   |   |   |   | Q |   |    3rd row, 7th column
-#'  --------------------------------- 
-#'  |   |   |   | Q |   |   |   |   |    2nd row, 4th column
-#'  ---------------------------------
-#'  | Q |   |   |   |   |   |   |   |    1st row, 1st column
-#'  ---------------------------------
+# 'Hãy thử và đặt một Nữ hoàng cho một vectơ vị trí của các Hậu hiện tại
+# '
+# 'Hàm này tự gọi đệ quy cho mọi vị trí hợp lệ của
+# 'Hậu tiếp theo.
+# '
+# '@param queens Một vectơ số nguyên đại diện cho vị trí cột
+# 'của các nữ hoàng cho đến nay. Chỉ mục trong danh sách này
+# 'là hàng và giá trị là cột.  
+# 'Để tạo tất cả các giải pháp, hãy chuyển vào một vectơ trống (mặc định)
+# '
+# 'ví dụ: Hậu = c (1, 4, 7) tương ứng với các Hậu được đặt tại c (1, 1), c (2, 4) và
+# 'c (3, 7)
 #'
 #'
 #'
-#'
-#' @return a list where each element is a vector of 8 integers 
-#'         i.e. a solution to the 8 queens problem
+# '@ Trả về danh sách trong đó mỗi phần tử là một vectơ gồm 8 số nguyên
+# 'tức là một giải pháp cho vấn đề 8 hậu
 #-----------------------------------------------------------------------------
 place_queen <- function(queens=c()) {
   
   #---------------------------------------------------------------------------
-  # If there are 8 queens placed, then this must be a solution.
+  # Nếu có 8 quân hậu được đặt vào, thì đây phải là một giải pháp.
   #---------------------------------------------------------------------------
   if (length(queens) == 8) {
     return(list(queens))
   }
   
   #---------------------------------------------------------------------------
-  # Figure out where a queen can be placed in the next row.
-  # Drop all columns that have already been taken - since we 
-  # can't place a queen below an existing queen
+  # Tìm ra nơi quân hậu có thể được đặt ở hàng tiếp theo.
+  # Bỏ tất cả các cột đã được sử dụng - Vì ta
+  # không thể đặt một nữ hoàng bên dưới một nữ hoàng hiện có
   #---------------------------------------------------------------------------
   possible_placements <- setdiff(1:8, queens)
   
   #---------------------------------------------------------------------------
-  # For each queen already on the board, find the diagonal 
-  # positions that it can see in this row.
+  # Đối với mỗi quân hậu đã có trên bàn cờ, hãy tìm đường chéo
+  # vị trí mà nó có thể nhìn thấy trong hàng này.
   #---------------------------------------------------------------------------
   diag_offsets <- seq.int(length(queens), 1)
   diags <- c(queens + diag_offsets, queens - diag_offsets)
   diags <- diags[diags > 0 & diags < 9]
   
   #---------------------------------------------------------------------------
-  # Drop these diagonal columns from possible placements
+  # Bỏ các cột chéo này khỏi các vị trí có thể có
   #---------------------------------------------------------------------------
   possible_placements <- setdiff(possible_placements, diags)
   
   #---------------------------------------------------------------------------
-  # For each possible placement, try and place a queen
+  # Đối với mỗi vị trí có thể, hãy thử và đặt một Quân hậu
   #---------------------------------------------------------------------------
   possible_placements %>% 
     map(~place_queen(c(queens, .x))) %>%
@@ -77,8 +59,8 @@ place_queen <- function(queens=c()) {
 
 
 #-----------------------------------------------------------------------------
-#' Plot a single solution
-#' @param queens a vector of 8 integers giving the column positions of 8 queens
+# 'Vẽ một giải pháp duy nhất
+# '@param Hậu một vectơ gồm 8 số nguyên cho các vị trí cột của 8 nữ hoàng
 #-----------------------------------------------------------------------------
 plot_single_8queens <- function(queens, title = NULL) {
   queens_df <- tibble(cols = queens, rows=1:8)
@@ -104,7 +86,7 @@ plot_single_8queens <- function(queens, title = NULL) {
 
 
 #-----------------------------------------------------------------------------
-# Start with no queens placed and generate all solutions.
+# Bắt đầu với không đặt nữ hoàng và tạo ra tất cả các giải pháp.
 #-----------------------------------------------------------------------------
 solutions <- place_queen()
 
