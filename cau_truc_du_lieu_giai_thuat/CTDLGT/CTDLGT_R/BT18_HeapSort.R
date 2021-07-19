@@ -2,7 +2,16 @@
 #### min-heap
 #### bottom-top algorithm used
 
+# 1. Xây dựng một heap tối đa từ dữ liệu đầu vào.
 
+# 2. Tại thời điểm này, mục lớn nhất được lưu trữ ở gốc của heap. 
+# Thay thế nó bằng mục cuối cùng của heap, sau đó giảm kích thước của heap đi 1.
+# Cuối cùng, ta có một gốc heap.
+
+# 3. Lặp lại bước 2 trong khi kích thước của heap lớn hơn 1.
+
+
+# Tạo heap từ vector dua vao
 heap.building<-function(vec)
 {
   len=length(vec)
@@ -15,7 +24,7 @@ heap.building<-function(vec)
 }
 
 
-
+# kiem tra heap co phai là một heap hay không
 is.heap<-function(heap,root_i)
 {
   i=root_i
@@ -30,7 +39,7 @@ is.heap<-function(heap,root_i)
   return(res)
 }
 
-
+# sửa đổi heap
 modify.heap<-function(heap,root_i)
 {
   len=length(heap)
@@ -59,6 +68,7 @@ modify.heap<-function(heap,root_i)
   return(heap)
 }
 
+# sắp xếp heap
 heap.sort<-function(heap)
 {
   sorted=NULL
