@@ -1,15 +1,8 @@
-Buổi 1: [links](https://youtu.be/xCAU4cX8lG0)
-
-Buổi 2: [links](https://youtu.be/_aN7fJ4Bpqk)
-
-Buổi 3: [links](https://youtu.be/3yjrc43EYsM)
-
-Buổi 4: [links](https://youtu.be/YGnM9km8eQg)
-
-Buổi 5: [links](https://youtu.be/g3KrGnT0_t4)
-
-Buổi 6: [links](https://youtu.be/i4U2pITr4EM)
-
-Buổi 7: [links](https://youtu.be/dkAFKzmuMjA)
-
-Buổi 8: [links](https://youtu.be/HFXpSzvGzDQ)
+Buổi 1: https://youtu.be/xCAU4cX8lG0
+Buổi 2: https://youtu.be/_aN7fJ4Bpqk
+Buổi 3: https://youtu.be/3yjrc43EYsM
+Buổi 4: https://youtu.be/YGnM9km8eQg
+Buổi 5: https://youtu.be/g3KrGnT0_t4
+Buổi 6: https://youtu.be/i4U2pITr4EM
+Buổi 7: https://youtu.be/dkAFKzmuMjA
+Buổi 8: https://youtu.be/HFXpSzvGzDQ
