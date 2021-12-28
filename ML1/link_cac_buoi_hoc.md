@@ -10,3 +10,6 @@
 - Buổi 10: https://youtu.be/0jGYMUY0OQk
 - Buổi 11: https://youtu.be/j6EM5_TLnqA
 - Buổi 12: https://youtu.be/cjIhyydaP-k
+- Buổi 13: Thực Hành
+- Buổi 14: Thực hành
+- Buổi 15: https://youtu.be/tWikHqUqAvw
