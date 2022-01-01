@@ -13,3 +13,4 @@
 - Buổi 13: Thực Hành
 - Buổi 14: Thực hành
 - Buổi 15: https://youtu.be/tWikHqUqAvw
+- Buổi 16: https://youtu.be/6A2FTXABJAU
