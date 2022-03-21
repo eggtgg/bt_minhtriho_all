@@ -1,3 +1,5 @@
+ML1
+
 - Buổi 1: https://youtu.be/xCAU4cX8lG0
 - Buổi 2: https://youtu.be/_aN7fJ4Bpqk
 - Buổi 3: https://youtu.be/3yjrc43EYsM
@@ -14,3 +16,7 @@
 - Buổi 14: Thực hành
 - Buổi 15: https://youtu.be/tWikHqUqAvw
 - Buổi 16: https://youtu.be/6A2FTXABJAU
+
+ML2
+- Buổi 1: https://youtu.be/2QF6aTGDyms
+- Buổi 2: https://youtu.be/_hgO7-gUTNk
