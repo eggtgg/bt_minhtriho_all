@@ -20,3 +20,7 @@ ML1
 ML2
 - Buổi 1: https://youtu.be/2QF6aTGDyms
 - Buổi 2: https://youtu.be/_hgO7-gUTNk
+- Buổi 3: 
+- Buổi 4-1: https://youtu.be/vGDm5NKWLWo
+- Buổi 4-2: https://youtu.be/jSqqHjHKSwk
+- Buổi 5: https://youtu.be/I2mR0dYvyGY
